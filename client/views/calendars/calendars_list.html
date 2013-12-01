@@ -1,0 +1,23 @@
+<template name="newCalendars">
+  {{> calendarList options}}
+</template>
+
+<template name="bestCalendar">
+  {{> postsList options}}
+</template>
+
+<template name="calenarList">
+  <div class="calendars">
+    {{#each calendarsWithRank}}
+      {{> calendarItem}}
+    {{/each}}
+    
+    {{#if calendarsReady}}
+      {{#unless allCalendarsLoaded}}
+    		<a class="load-more" href="#">Load more</a>
+      {{/unless}}
+    {{else}}
+      <div>{{> spinner}}</div>
+    {{/if}}
+  </div>
+</template>

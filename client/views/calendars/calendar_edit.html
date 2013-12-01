@@ -1,0 +1,38 @@
+<template name="calendarEdit">
+  {{#with post}}
+    <form class="main">
+       <div class="control-group">
+        <label class="control-label" for="title">Title</label>
+        <div class="controls">
+            <input name="title" type="text" value="" placeholder="Name your calendar"/>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="message">Description</label>
+        <div class="controls">
+            <textarea name="description" type="text" value=""/>
+        </div>
+    </div> 
+    
+    <div class="control-group">
+        <label class="control-label" for="url">Background URL</label>
+        <div class="controls">
+            <input name="bgurl" type="text" value="" placeholder="Your background picture URL"/>
+        </div>
+    </div>
+
+      <div class="control-group">
+          <div class="controls">
+              <input type="submit" value="Update" class="btn btn-primary submit"/>
+          </div>
+      </div>
+      <hr/>
+      <div class="control-group">
+          <div class="controls">
+              <a class="btn btn-danger delete" href="#">Delete post</a>
+          </div>
+      </div>
+    </form>
+  {{/with}}
+</template>
