@@ -1,10 +1,10 @@
-newPostsHandle = Meteor.subscribeWithPagination('newPosts', 10);
-bestPostsHandle = Meteor.subscribeWithPagination('bestPosts', 10);
+newCalendarsHandle = Meteor.subscribeWithPagination('newCalendars', 10);
+bestCalendarsHandle = Meteor.subscribeWithPagination('bestCalendars', 10);
 
 Deps.autorun(function() {
-  Meteor.subscribe('singlePost', Session.get('currentPostId'));
+  Meteor.subscribe('singleCalendar', Session.get('currentCalendarId'));
   
-  Meteor.subscribe('comments', Session.get('currentPostId'));
+  Meteor.subscribe('comments', Session.get('currentCalendarId'));
 })
 
 Meteor.subscribe('notifications');

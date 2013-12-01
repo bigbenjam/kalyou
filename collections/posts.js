@@ -1,39 +1,43 @@
-Posts = new Meteor.Collection('posts');
+Calendars = new Meteor.Collection('calendars');
 
-Posts.allow({
+Calendars.allow({
   update: ownsDocument,
   remove: ownsDocument
 });
 
 Posts.deny({
-  update: function(userId, post, fieldNames) {
-    // may only edit the following two fields:
-    return (_.without(fieldNames, 'url', 'title').length > 0);
+  update: function(userId, calendar, fieldNames) {
+    // may only edit the following fields:
+    return (_.without(fieldNames, 'url', 'title', 'description').length > 0);
   }
 });
 
 Meteor.methods({
-  post: function(postAttributes) {
+  calendar: function(calendarAttributes) {
     var user = Meteor.user(),
-      postWithSameLink = Posts.findOne({url: postAttributes.url});
+        calendarWithSameTitle = Posts.findOne({title: calendarAttributes.title});
     
     // ensure the user is logged in
     if (!user)
-      throw new Meteor.Error(401, "You need to login to post new stories");
+      throw new Meteor.Error(401, "You need to login to create a new calendar");
     
-    // ensure the post has a title
-    if (!postAttributes.title)
-      throw new Meteor.Error(422, 'Please fill in a headline');
+    // ensure the calendar has a title
+    if (!calendarAttributes.title)
+      throw new Meteor.Error(422, 'Please fill in a title');
+    
+    // ensure the calendar has a background img url
+    if (!calendarAttributes.bgurl)
+      throw new Meteor.Error(422, 'Please fill in a background img url');
     
     // check that there are no previous posts with the same link
-    if (postAttributes.url && postWithSameLink) {
+    if (calendarAttributes.title && calendarWithSameTitle) {
       throw new Meteor.Error(302, 
-        'This link has already been posted', 
-        postWithSameLink._id);
+        'Another calendar already uses this title', 
+        calendarWithSameTitle._id);
     }
     
     // pick out the whitelisted keys
-    var post = _.extend(_.pick(postAttributes, 'url', 'title', 'message'), {
+    var calendar = _.extend(_.pick(calendarAttributes, 'title', 'description', 'bgurl'), {
       userId: user._id, 
       author: user.username, 
       submitted: new Date().getTime(),
@@ -41,19 +45,19 @@ Meteor.methods({
       upvoters: [], votes: 0
     });
     
-    var postId = Posts.insert(post);
+    var calendarId = Calendars.insert(calendar);
     
-    return postId;
+    return calendarId;
   },
   
-  upvote: function(postId) {
+  upvote: function(calendarId) {
     var user = Meteor.user();
     // ensure the user is logged in
     if (!user)
       throw new Meteor.Error(401, "You need to login to upvote");
     
-    Posts.update({
-      _id: postId, 
+    Calendars.update({
+      _id: calendarId, 
       upvoters: {$ne: user._id}
     }, {
       $addToSet: {upvoters: user._id},

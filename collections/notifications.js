@@ -5,11 +5,11 @@ Notifications.allow({
 });
 
 createCommentNotification = function(comment) {
-  var post = Posts.findOne(comment.postId);
-  if (comment.userId !== post.userId) {
+  var calendar = Calendars.findOne(comment.calendarId);
+  if (comment.userId !== calendar.userId) {
     Notifications.insert({
-      userId: post.userId,
-      postId: post._id,
+      userId: calendar.userId,
+      calendarId: calendar._id,
       commentId: comment._id,
       commenterName: comment.author,
       read: false
