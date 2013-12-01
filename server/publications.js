@@ -2,7 +2,7 @@ Meteor.publish('newCalendars', function(limit) {
   return Calendars.find({}, {sort: {submitted: -1}, limit: limit});
 });
 
-Meteor.publish('bestPosts', function(limit) {
+Meteor.publish('bestCalendars', function(limit) {
   return Calendars.find({}, {sort: {votes: -1, submitted: -1}, limit: limit});
 });
 

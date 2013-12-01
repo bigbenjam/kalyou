@@ -62,7 +62,7 @@ height: 80px;
   .calendar .upvote {
     display: block;
     margin: 7px 12px 0 0;
-    float: left; }
+    float: right; }
   .calendar .calendar-content {
     float: left; }
     .calendar .calendar-content h3 {

@@ -1,4 +1,4 @@
-Template.postCalendar.helpers({
+Template.calendarPage.helpers({
   currentCalendar: function() {
     return Calendars.findOne(Session.get('currentCalendarId'));
   },

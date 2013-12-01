@@ -1,7 +1,7 @@
-Template.postSubmit.events({
+Template.calendarCreate.events({
   'submit form': function(e) {
     e.preventDefault();
-    
+    clearErrors();
     var calendar = {
       title: $(e.target).find('[name=title]').val(),
       description: $(e.target).find('[name=description]').val(),

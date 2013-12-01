@@ -1,24 +1,24 @@
 <template name="calendarEdit">
-  {{#with post}}
+  {{#with calendar}}
     <form class="main">
        <div class="control-group">
         <label class="control-label" for="title">Title</label>
         <div class="controls">
-            <input name="title" type="text" value="" placeholder="Name your calendar"/>
+            <input name="title" type="text" value="{{title}}" placeholder="Name your calendar"/>
         </div>
     </div>
 
     <div class="control-group">
         <label class="control-label" for="message">Description</label>
         <div class="controls">
-            <textarea name="description" type="text" value=""/>
+          <textarea name="description" type="text" value="">{{description}}</textarea>
         </div>
     </div> 
     
     <div class="control-group">
         <label class="control-label" for="url">Background Picture URL</label>
         <div class="controls">
-            <input name="bgurl" type="text" value="" placeholder="Your background picture URL"/>
+            <input name="bgurl" type="text" value="{{bgurl}}" placeholder="Your background picture URL"/>
         </div>
     </div>
 

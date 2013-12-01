@@ -1,4 +1,7 @@
 // Fixture data 
+//Calendars.remove({});
+//Comments.remove({});
+
 if (Calendars.find().count() === 0) {
   var now = new Date().getTime();
   
@@ -29,8 +32,8 @@ if (Calendars.find().count() === 0) {
   
   Comments.insert({
     calendarId: calId,
-    userId: sacha._id,
-    author: sacha.profile.name,
+    userId: simon._id,
+    author: simon.profile.name,
     submitted: now - 3 * 3600 * 1000,
     body: 'For sure :)'
   });
@@ -40,7 +43,7 @@ if (Calendars.find().count() === 0) {
     userId: simon._id,
     author: simon.profile.name,
     description: 'Have a cold one!',
-    bgurl: 'http://img.mi9.com/holiday/5025/merry-xmas-and-happy-new-year-christmas-coca-cola_1920x1200_94336.jpg',
+    bgurl: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT7Ig_mEmWvdyW-B1wNjzCxIwccStaWzHAFfeEUefBrBpWlTBBZdQ',
     submitted: now - 10 * 3600 * 1000,
     commentsCount: 0,
     upvoters: [], votes: 0

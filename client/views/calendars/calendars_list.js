@@ -16,7 +16,7 @@ Template.bestCalendars.helpers({
   }
 });
 
-Template.calendarsList.helpers({
+Template.calendarList.helpers({
   calendarsWithRank: function() {
     var i = 0, options = {sort: this.sort, limit: this.handle.limit()};
     return Calendars.find({}, options).map(function(calendar) {
@@ -35,7 +35,7 @@ Template.calendarsList.helpers({
   }
 });
 
-Template.calendarsList.events({
+Template.calendarList.events({
   'click .load-more': function(e) {
     e.preventDefault();
     this.handle.loadNextPage();

@@ -7,7 +7,7 @@ Template.calendarEdit.helpers({
 Template.calendarEdit.events({
   'submit form': function(e) {
     e.preventDefault();
-    
+    clearErrors();
     var currentCalendarId = Session.get('currentCalendarId');
     
     var calendarProperties = {
