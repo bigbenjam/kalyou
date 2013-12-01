@@ -38,6 +38,8 @@ width: 80px;
 height: 80px;
 }
 
+
+
 #spinner {
   height: 300px; }
 
@@ -83,6 +85,35 @@ height: 80px;
     display: block;
     float: right;
     margin-top: 7px; }
+
+  .calendar .calendar-main {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+    width: 100%;
+    }
+  .calendar .calendar-door {
+    display: block;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+    position:absolute;
+    border-style:solid;
+    border-width:5px;
+    border-color:#ffffff;
+    left:30px;
+    top:30px;
+    }
 
 .comments {
   list-style-type: none;

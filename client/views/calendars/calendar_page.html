@@ -1,7 +1,11 @@
 <template name="calendarPage">
   {{#with currentCalendar}}
     {{> calendarItem}}
-    
+  <div class="calendar">
+    <img class="calendar-door" src="http://ris.fashion.telegraph.co.uk/RichImageService.svc/imagecontent/1/TMG10478623/m/Day-1_2072413a.jpg"/>
+    <img class="calendar-main" src="{{bgurl}}"/>
+  
+  </div>
     <ul class="comments">
       {{#each comments}}
         {{> comment}}

@@ -1,16 +1,17 @@
 <template name="calendarItem">
   <div class="calendar">
-    <img class="portrait" src="{{bgurl}}"/>
+    <a href="{{calendarPagePath this}}"><img class="portrait" src="{{bgurl}}"/></a>
     <div class="calendar-content">
-      <h3>{{title}}</h3>
+      <a href="{{calendarPagePath this}}"><h3>{{title}}</h3></a>
       <p>
+        <font style="font-style:italic">{{description}}</font><br/>
         {{pluralize votes "Vote"}},
         submitted by {{author}},
         <a href="{{calendarPagePath this}}">{{pluralize commentsCount "comment"}}</a>
         {{#if ownCalendar}}<a href="{{calendarEditPath this}}">Edit</a>{{/if}}
       </p>
     </div>
-    <a href="#" class="upvote btn {{upvotedClass}}">⬆</a>
+    <a href="#" class="upvote btn {{upvotedClass}}">Like</a>
     <a href="{{calendarPagePath this}}" class="discuss btn">Comment</a>
   </div>
 </template>
