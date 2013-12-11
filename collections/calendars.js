@@ -8,7 +8,7 @@ Calendars.allow({
 Calendars.deny({
   update: function(userId, calendar, fieldNames) {
     // may only edit the following fields:
-    return (_.without(fieldNames, 'title', 'description', 'bgurl').length > 0);
+    return (_.without(fieldNames, 'title', 'description', 'bgurl', 'private').length > 0);
   }
 });
 
@@ -35,7 +35,7 @@ Meteor.methods({
     }
     
     // pick out the whitelisted keys
-    var calendar = _.extend(_.pick(calendarAttributes, 'title', 'description', 'bgurl'), {
+    var calendar = _.extend(_.pick(calendarAttributes, 'title', 'description', 'bgurl', 'private'), {
       userId: user._id, 
       author: user.username, 
       submitted: new Date().getTime(),

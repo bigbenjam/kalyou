@@ -16,9 +16,16 @@
     </div> 
     
     <div class="control-group">
-        <label class="control-label" for="url">Background Picture URL</label>
+        <label class="control-label" for="url">Background Picture URL (will be scaled to 1170x770px)</label>
         <div class="controls">
             <input name="bgurl" type="text" value="{{bgurl}}" placeholder="Your background picture URL"/>
+        </div>
+    </div>
+      
+      <div class="control-group">
+        <label class="control-label" for="private">Private Calendar &mdash; <input name="private" type="checkbox" {{getPrivateCheckboxState}}></label>
+        <div class="controls">
+            You need to share the calendar link for people to access it.
         </div>
     </div>
 

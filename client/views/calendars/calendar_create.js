@@ -5,7 +5,8 @@ Template.calendarCreate.events({
     var calendar = {
       title: $(e.target).find('[name=title]').val(),
       description: $(e.target).find('[name=description]').val(),
-      bgurl: $(e.target).find('[name=bgurl]').val()
+      bgurl: $(e.target).find('[name=bgurl]').val(),
+      private: $(e.target).find('[name=private]').prop('checked')
     }
     
     Meteor.call('calendar', calendar, function(error, id) {
